@@ -1,0 +1,15 @@
+{
+  "PinManagerConfiguration": {
+    "PinMaxAttempts": 2,
+    "PinLockoutDurationInMinutes": 10,
+    "PinMonitorSleepInMinutes": 1,
+    "Prompts": {
+      "InvalidConfiguration": "Test",
+      "InvalidPin": "Test",
+      "MaximumPinAttemptsReached": "Test"
+    }
+  },
+  "Pins": {
+    "+14255551212": "0000"
+  }
+}

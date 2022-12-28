@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LawEnforcementDialer.Api", "LawEnforcementDialer.Api\LawEnforcementDialer.Api.csproj", "{3D3697BA-AEF4-4404-ACC4-F6E7C3A78BE6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LawEnforcementDialer.CallManager", "LawEnforcementDialer.CallManager\LawEnforcementDialer.CallManager.csproj", "{091C5610-240D-4E23-9D08-532E7417C3DD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LawEnforcementDialer.Persistence", "LawEnforcementDialer.Persistence\LawEnforcementDialer.Persistence.csproj", "{5B1CC425-4877-473F-8785-D13F46C6A857}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LawEnforcementDialer.PinManager", "LawEnforcementDialer.PinManager\LawEnforcementDialer.PinManager.csproj", "{7CB6F41D-5983-4E30-B2EF-8F6783E491DF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{848D9239-BB66-4DB7-B75E-741C1D82ECF6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LawEnforcementDialer.Tests", "tests\LawEnforcementDialer.Tests\LawEnforcementDialer.Tests.csproj", "{1BBAF5D1-A43C-44C4-BFE3-379CECECB3BD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3D3697BA-AEF4-4404-ACC4-F6E7C3A78BE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D3697BA-AEF4-4404-ACC4-F6E7C3A78BE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D3697BA-AEF4-4404-ACC4-F6E7C3A78BE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D3697BA-AEF4-4404-ACC4-F6E7C3A78BE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{091C5610-240D-4E23-9D08-532E7417C3DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{091C5610-240D-4E23-9D08-532E7417C3DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{091C5610-240D-4E23-9D08-532E7417C3DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{091C5610-240D-4E23-9D08-532E7417C3DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B1CC425-4877-473F-8785-D13F46C6A857}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B1CC425-4877-473F-8785-D13F46C6A857}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B1CC425-4877-473F-8785-D13F46C6A857}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B1CC425-4877-473F-8785-D13F46C6A857}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CB6F41D-5983-4E30-B2EF-8F6783E491DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CB6F41D-5983-4E30-B2EF-8F6783E491DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CB6F41D-5983-4E30-B2EF-8F6783E491DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CB6F41D-5983-4E30-B2EF-8F6783E491DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BBAF5D1-A43C-44C4-BFE3-379CECECB3BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BBAF5D1-A43C-44C4-BFE3-379CECECB3BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BBAF5D1-A43C-44C4-BFE3-379CECECB3BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BBAF5D1-A43C-44C4-BFE3-379CECECB3BD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1BBAF5D1-A43C-44C4-BFE3-379CECECB3BD} = {848D9239-BB66-4DB7-B75E-741C1D82ECF6}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ED01C235-CAD1-47A5-80F2-729DE350A992}
+	EndGlobalSection
+EndGlobal
