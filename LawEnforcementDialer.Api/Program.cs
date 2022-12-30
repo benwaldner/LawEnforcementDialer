@@ -25,7 +25,7 @@ builder.Services.AddPinManager(builder.Configuration);
 
 // add Call Automation client and handlers
 builder.Services
-    .AddCallAutomationClient(builder.Configuration["ACS:ConnectionString"], builder.Configuration["ACS:EndpointOverride"])
+    .AddCallAutomationClient(builder.Configuration["ACS:ConnectionString"])
     .AddCallAutomationEventHandling()
     .AddAutomaticHandlerDiscovery(Assembly.GetExecutingAssembly());
 
@@ -79,11 +79,6 @@ app.MapPost("/api/callRecording", async (CloudEvent[] events, ILogger<Program> l
         if (@event is RecordingStateChanged recordingStateChanged)
         {
             logger.LogInformation($"Recording message: {@event.ResultInformation?.Message}");
-
-            if (recordingStateChanged.State == RecordingState.Inactive)
-            {
-
-            }
         }
     }
 });

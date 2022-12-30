@@ -11,7 +11,7 @@
   <ItemGroup>
     <PackageReference Include="CallAutomation.Contracts" Version="1.0.9" />
     <PackageReference Include="CallAutomation.Extensions" Version="1.1.0-alpha-2022-12-28.1" />
-    <PackageReference Include="CallNotificationService.Client" Version="0.0.1-alpha-2022-12-28.4" />
+    <PackageReference Include="CallNotificationService.Client" Version="1.0.0-beta1" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.1" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
