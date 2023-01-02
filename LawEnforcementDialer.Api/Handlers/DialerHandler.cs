@@ -41,7 +41,6 @@ public sealed class DialerHandler : CallAutomationHandler
             ? "+" + input
             : "+1" + input;
 
-        await _callManagerService.SetCallTargetAsync(activeCall, target);
         await _dialogController.InvokeAddPstnTarget(callConnection, callMedia, activeCall, new PhoneNumberIdentifier(target));
     }
 }

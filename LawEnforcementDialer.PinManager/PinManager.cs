@@ -4,17 +4,17 @@ using Microsoft.Extensions.Options;
 
 namespace LawEnforcementDialer.PinManager;
 
-public class InMemoryPinManager : IPinManager
+public class PinManager : IPinManager
 {
     private readonly IOptionsMonitor<PinManagerConfiguration> _pinManagerConfiguration;
     private readonly IPinRepository _pinRepository;
-    private readonly ILogger<InMemoryPinManager> _logger;
+    private readonly ILogger<PinManager> _logger;
     private readonly Dictionary<string, PinAttempt> _pinAttempts = new();
 
-    public InMemoryPinManager(
+    public PinManager(
         IOptionsMonitor<PinManagerConfiguration> pinManagerConfiguration,
         IPinRepository pinRepository,
-        ILogger<InMemoryPinManager> logger)
+        ILogger<PinManager> logger)
     {
         _pinManagerConfiguration = pinManagerConfiguration;
         _pinRepository = pinRepository;
@@ -39,7 +39,14 @@ public class InMemoryPinManager : IPinManager
         if (digits == pin) return true;
 
         _pinAttempts[phoneNumber].AddBadAttempt();
-        CheckLockout(phoneNumber);
+
+        // check if PIN is locked out
+        _pinAttempts.TryGetValue(phoneNumber, out var badAttempt);
+        if (badAttempt?.BadAttempts >= _pinManagerConfiguration.CurrentValue.PinMaxAttempts)
+        {
+            throw new MaximumPinAttemptsReachedException(_pinManagerConfiguration.CurrentValue.Prompts.MaximumPinAttemptsReached);
+        }
+
         throw new InvalidPinException(_pinManagerConfiguration.CurrentValue.Prompts.InvalidPin);
     }
 
@@ -54,16 +61,6 @@ public class InMemoryPinManager : IPinManager
                 _logger.LogDebug($"Resetting {pinAttempt.Key} which had {pinAttempt.Value.BadAttempts} bad attempts, last tried on {pinAttempt.Value.DateTimeOfLastTry}");
                 pinAttempt.Value.Reset();
             }
-        }
-    }
-
-    private void CheckLockout(string phoneNumber)
-    {
-        // check if PIN is locked out
-        _pinAttempts.TryGetValue(phoneNumber, out var badAttempt);
-        if (badAttempt?.BadAttempts >= _pinManagerConfiguration.CurrentValue.PinMaxAttempts)
-        {
-            throw new MaximumPinAttemptsReachedException(_pinManagerConfiguration.CurrentValue.Prompts.MaximumPinAttemptsReached);
         }
     }
 }

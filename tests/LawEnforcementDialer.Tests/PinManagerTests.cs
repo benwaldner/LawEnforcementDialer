@@ -34,8 +34,8 @@ public sealed class PinManagerTests
     public async Task PinManager_ValidAttempt_ShouldReturnTrue()
     {
         // arrange
-        var mockLogger = new Mock<ILogger<InMemoryPinManager>>();
-        var subject = new InMemoryPinManager(_pinManagerConfiguration, _pinRepository, mockLogger.Object);
+        var mockLogger = new Mock<ILogger<PinManager.PinManager>>();
+        var subject = new PinManager.PinManager(_pinManagerConfiguration, _pinRepository, mockLogger.Object);
 
         // act
         var result = await subject.ValidatePin("+14255551212", "0000");
@@ -48,8 +48,8 @@ public sealed class PinManagerTests
     public async Task PinManager_MultipleValidAttempts_ShouldReturnTrue()
     {
         // arrange
-        var mockLogger = new Mock<ILogger<InMemoryPinManager>>();
-        var subject = new InMemoryPinManager(_pinManagerConfiguration, _pinRepository, mockLogger.Object);
+        var mockLogger = new Mock<ILogger<PinManager.PinManager>>();
+        var subject = new PinManager.PinManager(_pinManagerConfiguration, _pinRepository, mockLogger.Object);
 
         // act
         var result1 = await subject.ValidatePin("+14255551212", "0000");
@@ -66,8 +66,8 @@ public sealed class PinManagerTests
     public async Task PinManager_BadAttempt_ShouldThrowInvalidPinException()
     {
         // arrange
-        var mockLogger = new Mock<ILogger<InMemoryPinManager>>();
-        var subject = new InMemoryPinManager(_pinManagerConfiguration, _pinRepository, mockLogger.Object);
+        var mockLogger = new Mock<ILogger<PinManager.PinManager>>();
+        var subject = new PinManager.PinManager(_pinManagerConfiguration, _pinRepository, mockLogger.Object);
 
         // act & assert
         await subject.Invoking(async x => await x.ValidatePin("+14255551212", "1234")).Should().ThrowAsync<InvalidPinException>();
@@ -77,8 +77,8 @@ public sealed class PinManagerTests
     public async Task PinManager_InvalidPhoneNumber_ShouldThrowInvalidConfigurationException()
     {
         // arrange
-        var mockLogger = new Mock<ILogger<InMemoryPinManager>>();
-        var subject = new InMemoryPinManager(_pinManagerConfiguration, _pinRepository, mockLogger.Object);
+        var mockLogger = new Mock<ILogger<PinManager.PinManager>>();
+        var subject = new PinManager.PinManager(_pinManagerConfiguration, _pinRepository, mockLogger.Object);
 
         // act & assert
         await subject.Invoking(async x => await x.ValidatePin("+14255550000", "1234")).Should().ThrowAsync<InvalidConfigurationException>();
@@ -88,8 +88,8 @@ public sealed class PinManagerTests
     public async Task PinManager_MultipleBadAttempts_ShouldThrowMaximumAttemptsReachedException()
     {
         // arrange
-        var mockLogger = new Mock<ILogger<InMemoryPinManager>>();
-        var subject = new InMemoryPinManager(_pinManagerConfiguration, _pinRepository, mockLogger.Object);
+        var mockLogger = new Mock<ILogger<PinManager.PinManager>>();
+        var subject = new PinManager.PinManager(_pinManagerConfiguration, _pinRepository, mockLogger.Object);
 
         // act & assert
         await subject.Invoking(async x => await x.ValidatePin("+14255551212", "1234")).Should().ThrowAsync<InvalidPinException>();
@@ -100,8 +100,8 @@ public sealed class PinManagerTests
     public async Task PinManager_ResetBadAttempts_ShouldReset()
     {
         // arrange
-        var mockLogger = new Mock<ILogger<InMemoryPinManager>>();
-        var subject = new InMemoryPinManager(_pinManagerConfiguration, _pinRepository, mockLogger.Object);
+        var mockLogger = new Mock<ILogger<PinManager.PinManager>>();
+        var subject = new PinManager.PinManager(_pinManagerConfiguration, _pinRepository, mockLogger.Object);
 
         // act
         await subject.Invoking(async x => await x.ValidatePin("+14255551212", "1234")).Should().ThrowAsync<InvalidPinException>();
@@ -121,8 +121,8 @@ public sealed class PinManagerTests
     public async Task PinManager_ResetBadAttempts_ShouldNotReset()
     {
         // arrange
-        var mockLogger = new Mock<ILogger<InMemoryPinManager>>();
-        var subject = new InMemoryPinManager(_pinManagerConfiguration, _pinRepository, mockLogger.Object);
+        var mockLogger = new Mock<ILogger<PinManager.PinManager>>();
+        var subject = new PinManager.PinManager(_pinManagerConfiguration, _pinRepository, mockLogger.Object);
 
         // act
         await subject.Invoking(async x => await x.ValidatePin("+14255551212", "1234")).Should().ThrowAsync<InvalidPinException>();

@@ -8,7 +8,7 @@ public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddPinManager(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddSingleton<IPinManager, InMemoryPinManager>();
+        services.AddSingleton<IPinManager, PinManager>();
         services.AddSingleton<IPinRepository, InMemoryPinRepository>();
         services.AddHostedService<PinMonitor>();
 

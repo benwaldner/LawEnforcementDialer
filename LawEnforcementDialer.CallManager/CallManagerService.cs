@@ -5,14 +5,11 @@ namespace LawEnforcementDialer.CallManager
     public class CallManagerService : ICallManagerService
     {
         private readonly IActiveCallRepository _activeCallRepository;
-        private readonly ICallTargetRepository _callTargetRepository;
 
         public CallManagerService(
-            IActiveCallRepository activeCallRepository,
-            ICallTargetRepository callTargetRepository)
+            IActiveCallRepository activeCallRepository)
         {
             _activeCallRepository = activeCallRepository;
-            _callTargetRepository = callTargetRepository;
         }
 
         public async Task SaveActiveCallAsync(ActiveCall activeCall)
@@ -37,10 +34,6 @@ namespace LawEnforcementDialer.CallManager
                 Target = persistedActiveCall.Target
             };
         }
-
-        public async Task SetCallTargetAsync(ActiveCall activeCall, string target) => await _callTargetRepository.SetCallTargetAsync(activeCall.Id, target);
-
-        public async Task<string?> GetCallTargetAsync(ActiveCall activeCall) => await _callTargetRepository.GetCallTargetAsync(activeCall.Id);
 
         public async Task RemoveActiveCallAsync(string correlationId) => await _activeCallRepository.RemoveByCorrelationId(correlationId);
     }

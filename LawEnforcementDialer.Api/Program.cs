@@ -17,7 +17,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddSingleton<ICallManagerService, CallManagerService>();
 builder.Services.AddSingleton<IActiveCallRepository, InMemoryActiveCallRepository>();
-builder.Services.AddSingleton<ICallTargetRepository, InMemoryCallTargetRepository>();
 builder.Services.AddSingleton<IDialogController, DialogController>();
 
 // add pin management services and worker
