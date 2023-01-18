@@ -11,7 +11,7 @@
   <ItemGroup>
 	  <PackageReference Include="Microsoft.Extensions.Http" Version="7.0.0" />
 
-	  <PackageReference Include="Azure.Communication.CallAutomation" Version="1.0.0-alpha.20221221.1" />
+	  <PackageReference Include="Azure.Communication.CallAutomation" Version="1.0.0-alpha.20221228.1" />
     <PackageReference Include="FluentAssertions" Version="6.9.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.4.1" />
     <PackageReference Include="Moq" Version="4.18.4" />
