@@ -122,7 +122,7 @@ public sealed class DialogController : IDialogController
             })
             .OnAddParticipantsSucceeded(async () =>
             {
-                _logger.LogInformation($"Participant added {target}");
+                _logger.LogInformation($"Participant added: {target}");
 
                 await callMedia.CancelAllMediaOperationsAsync();
 
